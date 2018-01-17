@@ -7,8 +7,24 @@ describe('angular-testing App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('title should be app', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getTitleText()).toEqual('app');
+  });
+
+  it('upvote/downvote multiple times, showing the proper vote tally', () => {
+    page.navigateTo();
+    expect(page.getPoints()).toBe('0');
+    
+    page.getPlusOneButton().click();
+    page.getPlusOneButton().click();
+    page.getPlusOneButton().click();
+
+    expect(page.getPoints()).toBe('3');
+
+    page.getMinusOneButton().click();
+    page.getMinusOneButton().click();
+
+    expect(page.getPoints()).toBe('1');
   });
 });

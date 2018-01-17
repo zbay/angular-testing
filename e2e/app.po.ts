@@ -5,7 +5,19 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
+  getTitleText() {
     return element(by.css('app-root h1')).getText();
+  }
+
+  getPoints(){
+    return element(by.cssContainingText('div', 'votes')).$('span').getText();
+  }
+
+  getPlusOneButton(){
+    return element(by.cssContainingText('button', 'Upvote'));
+  }
+
+  getMinusOneButton(){
+    return element(by.cssContainingText('button', 'Downvote'));
   }
 }
