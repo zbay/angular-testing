@@ -7,13 +7,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { VoteComponent } from './vote/vote.component';
-
+import { LoginComponent } from './login/login.component';
+import { TodosComponent } from './todos/todos.component';
+import { VoterComponent } from './voter/voter.component';
+import { TodoService } from './services/todo.service';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { NavComponent } from './nav/nav.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoFormComponent,
-    VoteComponent
+    VoteComponent,
+    LoginComponent,
+    TodosComponent,
+    VoterComponent,
+    UserDetailsComponent,
+    NavComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -21,7 +33,7 @@ import { VoteComponent } from './vote/vote.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ TodoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
